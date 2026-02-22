@@ -6,3 +6,5 @@ seaborn
 scikit-learn
 plotly
 joblib
+streamlit-lottie
+requests
