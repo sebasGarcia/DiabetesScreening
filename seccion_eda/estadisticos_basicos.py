@@ -4,6 +4,7 @@ import matplotlib as plt
 import seaborn as sns
 import plotly.express as px
 import io
+import plotly.graph_objects as go
 
 st.markdown("## Datos Crudos del dataset")
 #cargar el dataset
@@ -29,14 +30,14 @@ st.dataframe(df[['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'In
 
 st.markdown("## Distribución de las variables")
 #Mostrar boxplots para visualizar outliers o valores atipicos 
-#Mostrar distribución de las variables - excluyendo la variable outcome o variable objetivo
+#Mostrar distribución de las variables
 
-st.subheader("Distribución de las variables ")
+
 target_col = "Outcome"
 
 feature_cols = [
     c for c in df.columns
-    if c != target_col and df[c].dtype != "object"
+    if df[c].dtype != "object"
 ]
 
 #Seleccionar 3 columnas por defecto
@@ -77,6 +78,11 @@ for col in selected_cols:
     fig.update_layout(bargap=0.05)
     st.plotly_chart(fig, use_container_width=True)
 
+#Se muestra por separado la variable objectivo outcome
+st.subheader("Distribución variable objetivo - Outcome")
+st.markdown("#### 1: Diagnostico Positivo, 0: Diagnostico Negativo")
+
+st.write(df[target_col].value_counts())
 
 st.markdown("## Matriz de correlación")
 
@@ -116,3 +122,5 @@ if len(selected_corr_cols) >= 2:
     st.plotly_chart(fig, use_container_width=True)
 else:
     st.info("Seleccione al menos dos columnas.")
+
+
