@@ -1,6 +1,7 @@
-# 🎈 Blank app template
+# 🩺 Detector de Diabetes
 
-A simple Streamlit app template for you to modify!
+Esta aplicación tiene como objetivo ayudar al diagnóstico clínico determinando si un paciente tiene probabilidades de tener diabetes basándose en métricas de salud (glucosa, presión arterial, IMC, edad) usando
+varias técnicas de Machine Learning
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
 
