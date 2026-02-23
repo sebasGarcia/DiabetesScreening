@@ -8,3 +8,5 @@ plotly
 joblib
 streamlit-lottie
 requests
+xgboost
+shap
