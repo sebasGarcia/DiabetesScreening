@@ -10,3 +10,4 @@ streamlit-lottie
 requests
 xgboost
 shap
+imblearn
