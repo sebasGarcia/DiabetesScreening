@@ -1,16 +1,25 @@
 import streamlit as st 
 
-pg_intro = st.Page("intro.py", title="Introducción")
+# Configuración general de la página (se aplica a todas)
+st.set_page_config(page_title="🩺 Detector de Diabetes", layout="wide")
 
-#Paginas EDA
-pg_eda_intro = st.Page("seccion_eda/intro_eda.py", title="Intro EDA")
-pg_eda_basica = st.Page("seccion_eda/estadisticos_basicos.py", title="Información básica")
+# --- DEFINICIÓN DE LAS PÁGINAS ---
+
+# 1. Página de Inicio (Bienvenida)
+pg_inicio = st.Page("intro.py", title="Inicio")
+
+# 2. Proyecto : Detector de Diabetes
+
+pg_eda_basica = st.Page("diabetes_screening/estadisticos_basicos.py", title="Análisis Exploratorio")
+pg_diabetes_inf = st.Page("diabetes_screening/inferencia.py", title="Inferencia")
+
 
 navigation_env = st.navigation(
     {
-    "Inicio": [pg_intro],
-    "EDA": [pg_eda_intro, pg_eda_basica]
+        "General": [pg_inicio],
+        "Proyecto: Detector de Diabetes": [pg_eda_basica, pg_diabetes_inf]      
     }
 )
 
 navigation_env.run()
+
